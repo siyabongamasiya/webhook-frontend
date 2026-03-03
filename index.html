@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Webhook API Validator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg" aria-hidden="true">
+      <div class="bg__gradient"></div>
+      <div class="bg__blob bg__blob--1"></div>
+      <div class="bg__blob bg__blob--2"></div>
+    </div>
+
+    <header class="topbar" aria-label="Top bar">
+      <div class="topbar__inner">
+        <div class="brand" aria-label="App">
+          <span class="brand__mark" aria-hidden="true"></span>
+          <span class="brand__name">Webhook Validator</span>
+        </div>
+
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle dark mode">
+          <span class="icon" aria-hidden="true">◐</span>
+          <span class="icon-btn__text">Theme</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="shell">
+      <section class="card" aria-label="Validator">
+        <div class="card__header">
+          <h1 class="title">Webhook API Validator</h1>
+          <p class="subtitle">Validate your deployed endpoint instantly</p>
+        </div>
+
+        <form id="validatorForm" class="form" novalidate>
+          <div class="field">
+            <label class="label" for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              inputmode="email"
+              autocomplete="email"
+              placeholder="you@company.com"
+              required
+            />
+            <p class="field__msg" id="emailMsg" aria-live="polite"></p>
+          </div>
+
+          <div class="field">
+            <label class="label" for="endpoint">API Endpoint URL</label>
+            <input
+              id="endpoint"
+              name="endpoint"
+              type="url"
+              inputmode="url"
+              autocomplete="url"
+              required
+            />
+            <p class="helper">Your deployed POST webhook endpoint</p>
+            <p class="field__msg" id="endpointMsg" aria-live="polite"></p>
+          </div>
+
+          <button id="submitBtn" class="btn" type="submit">
+            <span class="btn__content">
+              <span class="btn__label">Validate Endpoint</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </span>
+          </button>
+
+          <p class="fineprint">
+            This tool sends a <span class="mono">GET</span> request to the validation function with your
+            <span class="mono">url</span> and <span class="mono">email</span>.
+          </p>
+        </form>
+
+        <section id="resultPanel" class="result" aria-live="polite" aria-label="Result" hidden>
+          <div class="result__top">
+            <div class="status" id="statusBadge" role="status" aria-label="Status">
+              <span class="status__dot" aria-hidden="true"></span>
+              <span class="status__text" id="statusText">Status</span>
+            </div>
+
+            <div class="result__actions">
+              <button id="copyBtn" class="btn btn--ghost" type="button">Copy JSON</button>
+              <button id="clearBtn" class="btn btn--ghost" type="button">Clear</button>
+            </div>
+          </div>
+
+          <pre class="code" id="jsonOutput" tabindex="0"></pre>
+        </section>
+      </section>
+    </main>
+
+    <div id="toastHost" class="toasts" aria-live="polite" aria-label="Notifications"></div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
