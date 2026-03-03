@@ -1,20 +1,12 @@
-/*
-  Webhook Validator
-  - Builds a validation URL with url + email query params
-  - Sends a GET request to the Supabase edge function
-  - Renders a success/error panel with pretty-printed JSON
-  - Includes copy-to-clipboard + toast notifications
-*/
 
 const DEFAULT_ENDPOINT = "https://webhook-sort-api-1ib8.onrender.com/webhook";
 const VALIDATION_BASE_URL =
   "https://yhxzjyykdsfkdrmdxgho.supabase.co/functions/v1/application-task";
 
-/** @type {HTMLFormElement} */
 const form = document.getElementById("validatorForm");
-/** @type {HTMLInputElement} */
+
 const emailInput = document.getElementById("email");
-/** @type {HTMLInputElement} */
+
 const endpointInput = document.getElementById("endpoint");
 
 const emailMsg = document.getElementById("emailMsg");
@@ -357,7 +349,6 @@ function init() {
     clearValidationMessages();
   });
 
-  // Minor UX: clear field errors as the user types
   emailInput.addEventListener("input", () => {
     if (emailInput.getAttribute("aria-invalid") === "true") validateInputs();
   });
