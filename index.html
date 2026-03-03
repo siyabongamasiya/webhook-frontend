@@ -21,7 +21,12 @@
           <span class="brand__name">Webhook Validator</span>
         </div>
 
-        <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle dark mode">
+        <button
+          id="themeToggle"
+          class="icon-btn"
+          type="button"
+          aria-label="Toggle dark mode"
+        >
           <span class="icon" aria-hidden="true">◐</span>
           <span class="icon-btn__text">Theme</span>
         </button>
@@ -60,7 +65,7 @@
               autocomplete="url"
               required
             />
-            <p class="helper">Your deployed POST webhook endpoint</p>
+            <p class="helper">POST hook</p>
             <p class="field__msg" id="endpointMsg" aria-live="polite"></p>
           </div>
 
@@ -72,21 +77,37 @@
           </button>
 
           <p class="fineprint">
-            This tool sends a <span class="mono">GET</span> request to the validation function with your
-            <span class="mono">url</span> and <span class="mono">email</span>.
+            This tool sends a <span class="mono">GET</span> request to the
+            validation function with your <span class="mono">url</span> and
+            <span class="mono">email</span>.
           </p>
         </form>
 
-        <section id="resultPanel" class="result" aria-live="polite" aria-label="Result" hidden>
+        <section
+          id="resultPanel"
+          class="result"
+          aria-live="polite"
+          aria-label="Result"
+          hidden
+        >
           <div class="result__top">
-            <div class="status" id="statusBadge" role="status" aria-label="Status">
+            <div
+              class="status"
+              id="statusBadge"
+              role="status"
+              aria-label="Status"
+            >
               <span class="status__dot" aria-hidden="true"></span>
               <span class="status__text" id="statusText">Status</span>
             </div>
 
             <div class="result__actions">
-              <button id="copyBtn" class="btn btn--ghost" type="button">Copy JSON</button>
-              <button id="clearBtn" class="btn btn--ghost" type="button">Clear</button>
+              <button id="copyBtn" class="btn btn--ghost" type="button">
+                Copy JSON
+              </button>
+              <button id="clearBtn" class="btn btn--ghost" type="button">
+                Clear
+              </button>
             </div>
           </div>
 
@@ -95,7 +116,12 @@
       </section>
     </main>
 
-    <div id="toastHost" class="toasts" aria-live="polite" aria-label="Notifications"></div>
+    <div
+      id="toastHost"
+      class="toasts"
+      aria-live="polite"
+      aria-label="Notifications"
+    ></div>
 
     <script src="script.js" defer></script>
   </body>
